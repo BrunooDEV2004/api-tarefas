@@ -15,7 +15,7 @@ from .database import get_db
 # Chave secreta para assinar os tokens JWT.
 # Use uma string complexa e segura. Em produção, use variáveis de ambiente.
 SECRET_KEY = "sua-chave-secreta-muito-segura"
-ALGORITHM = "HS256" # Algoritmo de hash para o token
+ALGORITHM = "HS256"  # Algoritmo de hash para o token
 
 # Contexto para hash de senhas, usando o algoritmo bcrypt
 pwd_context = CryptContext(schemes=["bcrypt"], deprecated="auto")
@@ -57,7 +57,7 @@ def authenticate_user(db: Session, email: str, password: str):
     return user
 
 # Obtém o usuário a partir do token de acesso
-def get_current_user(token: Annotated[str, Depends(oauth2_scheme)], db: Session = Depends(get_db)):
+def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(get_db)):
     credentials_exception = HTTPException(
         status_code=status.HTTP_401_UNAUTHORIZED,
         detail="Não foi possível validar as credenciais",
