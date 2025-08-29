@@ -1,0 +1,25 @@
+# .gitignore
+
+# Ignora o ambiente virtual
+env/
+
+# Ignora o arquivo de banco de dados SQLite
+*.db
+*.sqlite3
+
+# Ignora caches de Python
+__pycache__/
+.pytest_cache/
+
+# Ignora arquivos de log
+*.log
+
+# Ignora arquivos de configurações sensíveis
+.env
+.flaskenv
+
+# Ignora arquivos gerados pelo VSCode (se você estiver usando)
+.vscode/
+
+# Ignora arquivos de sistema
+.DS_Store
